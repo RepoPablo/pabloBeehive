@@ -27,32 +27,14 @@ class DataManager {
 
     getAlbums() {
         let request = this.createRequest('albums', this.getAlbumsCallback);
-
-        // request = new XMLHttpRequest();
-        // request.open('GET', this.url + 'albums', true);
-        // request.onreadystatechange = this.getAlbumsCallback.bind(this);
-        // request.send();
-        // return request;
     };
 
     getPhotos() {
         let request = this.createRequest('photos', this.getPhotosCallback);
-
-        // request = new XMLHttpRequest();
-        // request.open('GET', this.url + 'photos', true);
-        // request.onreadystatechange = this.getPhotosCallback.bind(this);
-        // request.send();
-        // return request;
     };
 
     getTodos() {
         let request = this.createRequest('todos', this.getTodosCallback);
-
-        // request = new XMLHttpRequest();
-        // request.open('GET', this.url + 'todos', true);
-        // request.onreadystatechange = this.getTodosCallback.bind(this);
-        // request.send();
-        // return request;
     };
 
     createRequest(value, callback) {
@@ -70,7 +52,6 @@ class DataManager {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 const data = JSON.parse(request.response);
-                console.log(data);
 
                 let geo = new Geo(0, 0);
                 let address = new Address('San José', geo, 'Contiguo a Escuela Josefita Jurado de Alvarado', '1000', '1000');
@@ -125,7 +106,8 @@ class DataManager {
             if (request.status === 200) {
                 const data = JSON.parse(request.response);
 
-                //TODO: Parsear los comentarios
+                //TODO: Crear objectos (Comment) a partir de las clases, usando los 
+                //datos parseados en el json
                 console.log(data);
             };
         };
